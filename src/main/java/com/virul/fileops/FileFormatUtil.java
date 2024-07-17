@@ -29,13 +29,23 @@ public class FileFormatUtil {
         }
         return rows;
     }
-
     public static void writeCSV(String filePath, List<String[]> data) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
             for (String[] row : data) {
-                bw.write(String.join(",", row));
+                List<String> escapedRow = new ArrayList<>();
+                for (String field : row) {
+                    escapedRow.add(escapeCSVField(field));
+                }
+                bw.write(String.join(",", escapedRow));
                 bw.newLine();
             }
         }
+    }
+    private static String escapeCSVField(String field) {
+        if (field.contains(",") || field.contains("\"")) {
+            field = field.replace("\"", "\"\"");
+            return "\"" + field + "\"";
+        }
+        return field;
     }
 }
