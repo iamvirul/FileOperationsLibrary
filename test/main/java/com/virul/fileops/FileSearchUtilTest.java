@@ -5,10 +5,6 @@
 package main.java.com.virul.fileops;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,29 +13,7 @@ import static org.junit.Assert.*;
  * @author Virul Nirmala Wickramasinghe
  */
 public class FileSearchUtilTest {
-    
-    public FileSearchUtilTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of searchInFile method, of class FileSearchUtil.
-     */
     @Test
     public void testSearchInFile() throws Exception {
         System.out.println("searchInFile");
@@ -49,5 +23,4 @@ public class FileSearchUtilTest {
         List<String> result = FileSearchUtil.searchInFile(filePath, keyword);
         assertEquals(expResult, result);
     }
-    
 }
