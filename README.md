@@ -11,7 +11,7 @@
 
 - **Advanced File Operations**
   - Searching for text within files
-  - Reading and writing CSV files
+  - Reading and writing CSV files with proper escaping of special characters
 
 ## Installation
 
@@ -82,6 +82,15 @@ for (String[] row : csvData) {
 List<String[]> data = new ArrayList<>();
 data.add(new String[]{"Name", "Age", "City"});
 data.add(new String[]{"Alice", "30", "New York"});
+FileFormatUtil.writeCSV("path/to/your/file.csv", data);
+```
+
+#### Writing to a CSV File with Proper Escaping
+
+```java
+List<String[]> data = new ArrayList<>();
+data.add(new String[]{"id", "Name", "Address", "DOB", "Mobile"});
+data.add(new String[]{"1", "John Doe", "123 Main St, Apt 4B", "1990-01-01", "555-1234"});
 FileFormatUtil.writeCSV("path/to/your/file.csv", data);
 ```
 
